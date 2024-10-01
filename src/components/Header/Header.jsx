@@ -1,5 +1,5 @@
 import { useContext,useRef,useState } from "react";
-import { MyContext } from "../context/Context";
+
 
 
 import logo from '../Images/IU logo.png';
@@ -12,8 +12,8 @@ export function Header(){
 
    
    
-    const { modal, showModal } = useContext(MyContext);
-
+  
+      const [modal,setmodal] = useState(false);
       const [show,setshow] = useState(false);
       const [list1,setlist1] = useState(false);
       const [list2,setlist2] = useState(false);
@@ -30,13 +30,7 @@ export function Header(){
       const ref = useRef();
       
       
-      let offmodal = (e) =>{
-        
-        if(ref.current === e.target){
-         showModal(false)
-        }
-  
-      }
+      
      
      
     
@@ -52,7 +46,7 @@ export function Header(){
   
    <nav className="overflow-hidden  max-w-full w-[1290px] mt-0 mb-0 ml-auto mr-auto   flex  " >
   
-   <div id="hero" ref={ref} onClick={offmodal} className={` w-full h-[100vh] left-0 top-0  fixed flex justify-center pt-24 z-50 ${ modal ? "flex":"hidden"} `} style={{backgroundColor:"rgba(0,0,0,0.5)"}}>
+   <div id="hero" ref={ref} onClick={()=>setmodal(!modal)}  className={` w-full h-[100vh] left-0 top-0  fixed flex justify-center pt-24 z-50 ${modal? 'flex':'hidden'} `} style={{backgroundColor:"rgba(0,0,0,0.5)"}}>
     <div className="w-[100%] relative h-[8%] md:h-[5rem] xl::h-[10%] flex justify-center items-center md:w-[80%] lg:w-[60%] xl:w-[50%]">
       <input  type="text" placeholder="What do you want to study?" className="w-[90%] h-[80%] outline-none border-2 border-solid   pl-12 rounded-xl" autoFocus/>
       <i className="fa-solid absolute left-5 sm:left-8 xl:left-8 fa-magnifying-glass w-[15%] h-[80%] rounded-tr-lg rounded-br-lg flex justify-center items-center text-slate-400 text-2xl sm:w-[8%]"></i>
@@ -400,7 +394,7 @@ export function Header(){
   
   
   <div className="flex gap-4 xl:gap-0 ">
-  <svg onClick={()=>showModal(true)} className="z-40 mt-1  xl:cursor-pointer xl:mt-1 hover:fill-slate-600 duration-300 transition-all" width='23' height='23' xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M416 208c0 45.9-14.9 88.3-40 122.7L502.6 457.4c12.5 12.5 12.5 32.8 0 45.3s-32.8 12.5-45.3 0L330.7 376c-34.4 25.2-76.8 40-122.7 40C93.1 416 0 322.9 0 208S93.1 0 208 0S416 93.1 416 208zM208 352a144 144 0 1 0 0-288 144 144 0 1 0 0 288z"
+  <svg onClick={()=>setmodal(true)} className="z-40 mt-1  xl:cursor-pointer xl:mt-1 hover:fill-slate-600 duration-300 transition-all" width='23' height='23' xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M416 208c0 45.9-14.9 88.3-40 122.7L502.6 457.4c12.5 12.5 12.5 32.8 0 45.3s-32.8 12.5-45.3 0L330.7 376c-34.4 25.2-76.8 40-122.7 40C93.1 416 0 322.9 0 208S93.1 0 208 0S416 93.1 416 208zM208 352a144 144 0 1 0 0-288 144 144 0 1 0 0 288z"
   /></svg>
   
   <div className="flex  b w-12   xl:hidden">

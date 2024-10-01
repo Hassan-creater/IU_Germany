@@ -32,7 +32,7 @@ import last2 from '../Images/last img2.webp';
 import img1 from  '../Images/one-img1.webp';
 
 import {   lazy, Suspense, useContext, useRef, useState } from 'react';
-import { MyContext } from '../context/Context';
+
 import { Tabs } from '../Tabs/Tabs';
 import Footer from '../Footer/Footer';
 
@@ -52,7 +52,7 @@ function Home(){
    
   
 
-  const {showModal} = useContext(MyContext);
+ 
    
  
 
@@ -226,7 +226,7 @@ const Close = (e) =>{
           font-bold text-2xl bg-orange-400 sm:w-[30%] sm:text-4xl md:w-[25%] xl:text-5xl xl:w-[40%]'>Germany</h1>
           <p>Join over 100,000 satisfied students at Germany’s largest university. Get your flexible and accredited degree on your terms - no matter your circumstances!</p>
 
-        <div   onClick={()=>showModal(true)} className='w-full  min-h-14 flex justify-center items-center sm:min-h-16'>
+        <div    className='w-full  min-h-14 flex justify-center items-center sm:min-h-16'>
         <input className='w-[85%]  h-12 outline-none border-2 border-solid border-blue-700 pl-4 rounded-tl-lg rounded-bl-lg sm:h-14 sm:text-xl xl:w-[90%] xl:h-14' type='text' placeholder='What do you want to Study?'/>
         <i className="fa-solid fa-magnifying-glass w-[15%] text-2xl bg-blue-700 hover:bg-blue-500 h-12 flex justify-center items-center text-white rounded-tr-lg rounded-br-lg sm:h-14 sm:w-[10%]  "></i>
         </div>
